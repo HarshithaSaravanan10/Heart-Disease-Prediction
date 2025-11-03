@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Prediction Result</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</head>
+<body class="result-bg">
+    {% if alert %}
+    <audio autoplay>
+        <source src="{{ url_for('static', filename='failure.mp3') }}" type="audio/mpeg">
+    </audio>
+    {% endif %}
+    <div class="result-box {% if alert %}danger{% else %}success{% endif %}">
+        <h1>{{ result }}</h1>
+        <a href="/" class="back-btn">Try Another</a>
+    </div>
+</body>
+</html>
